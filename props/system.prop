@@ -1,5 +1,6 @@
 # Device
 ro.product.mod_device=peridot_global
+ro.lineage.maintainer=Fwlta
 
 # QTI
 ro.vendor.qti.va_aosp.support=1
