@@ -92,6 +92,7 @@
         <library name="gamedap" path="libswgamedap.so"/>
         <!--DOLBY VQE-->
         <library name="vqe" path="libswvqe.so"/>
+        <library name="v4a_re" path="libv4a_re.so"/>
         <!--DOLBY END-->
     </libraries>
     <effects>
@@ -165,6 +166,7 @@
         <effect name="gamedap" library="gamedap" uuid="3783c334-d3a0-4d13-874f-0032e5fb80e2"/>
         <!--DOLBY VQE-->
         <effect name="vqe" library="vqe" uuid="64a0f614-7fa4-48b8-b081-d59dc954616f"/>
+        <effect name="v4a_standard_re" library="v4a_re" uuid="90380da3-8536-4744-a6a3-5731970e640f"/>
         <!--DOLBY END-->
     </effects>
     <postprocess>
