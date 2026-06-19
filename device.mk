@@ -451,3 +451,6 @@ PRODUCT_COPY_FILES += \
 
 # Vendor
 $(call inherit-product, vendor/xiaomi/peridot/peridot-vendor.mk)
+
+# MiuiCamera
+$(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
