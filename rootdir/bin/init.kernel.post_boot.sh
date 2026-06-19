@@ -123,8 +123,7 @@ function configure_memory_parameters() {
 
 	configure_zram_parameters
 	configure_read_ahead_kb_values
-	# Keep anonymous memory a bit longer before swapping it out.
-	echo 90 > /proc/sys/vm/swappiness
+	echo 100 > /proc/sys/vm/swappiness
 
 	# Disable periodic kcompactd wakeups. We do not use THP, so having many
 	# huge pages is not as necessary.

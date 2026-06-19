@@ -712,8 +712,7 @@ if [ "$ProductName" == "msmnile" ] || [ "$ProductName" == "kona" ] || [ "$Produc
       configure_zram_parameters
       configure_read_ahead_kb_values
       echo 0 > /proc/sys/vm/page-cluster
-        # Keep a bit more anonymous memory in RAM before swapping it out.
-        echo 90 > /proc/sys/vm/swappiness
+      echo 100 > /proc/sys/vm/swappiness
 else
     arch_type=`uname -m`
 
@@ -796,9 +795,8 @@ else
                 #Set PPR parameters for all other targets.
                 echo $set_almk_ppr_adj > /sys/module/process_reclaim/parameters/min_score_adj
                 echo 1 > /sys/module/process_reclaim/parameters/enable_process_reclaim
-                # Make process reclaim slightly less eager to save background churn.
-                echo 60 > /sys/module/process_reclaim/parameters/pressure_min
-                echo 80 > /sys/module/process_reclaim/parameters/pressure_max
+                echo 50 > /sys/module/process_reclaim/parameters/pressure_min
+                echo 70 > /sys/module/process_reclaim/parameters/pressure_max
                 echo 30 > /sys/module/process_reclaim/parameters/swap_opt_eff
                 echo 512 > /sys/module/process_reclaim/parameters/per_swap_size
                 ;;
@@ -817,10 +815,9 @@ else
     fi
 
     # Set allocstall_threshold to 0 for all targets.
-    # Set swappiness to 90 for all targets.
+    # Set swappiness to 100 for all targets
     echo 0 > /sys/module/vmpressure/parameters/allocstall_threshold
-    # Keep a bit more anonymous memory in RAM before swapping it out.
-    echo 90 > /proc/sys/vm/swappiness
+    echo 100 > /proc/sys/vm/swappiness
 
     # Disable wsf for all targets beacause we are using efk.
     # wsf Range : 1..1000 So set to bare minimum value 1.
